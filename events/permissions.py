@@ -8,7 +8,7 @@ class IsOrganizerOrReadOnly(permissions.BasePermission):
         if request.user.is_superuser:
             return True
         
-        if request.user.role == 'organizer':
+        if request.user.role == 'Organizer':
             return True
         
         if request.method in permissions.SAFE_METHODS:
