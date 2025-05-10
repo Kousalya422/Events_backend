@@ -115,7 +115,7 @@ DATABASES = {
         'NAME': 'events_data_ehgp',
         'USER': 'events_data_ehgp_user',
         'PASSWORD': 'UjMeAMTv9jhjtg1CQbq9oVfrqztnIcNr',
-        'HOST': 'dpg-d0f0gq6mcj7s738b4ns0-a',  
+        'HOST': 'dpg-d0f0gq6mcj7s738b4ns0-a.oregon-postgres.render.com',  
         'PORT': '5432',       
     }
 }
