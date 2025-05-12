@@ -13,8 +13,8 @@ class Event(models.Model):
 
 class CustomUser(AbstractUser):
     ROLE_CHOICES = (
-        ('Attendee', 'attendee'),
-        ('Organizer', 'organizer'),
+        ('attendee', 'attendee'),
+        ('organizer', 'organizer'),
     )
     role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='attendee')
 
