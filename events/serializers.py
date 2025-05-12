@@ -1,9 +1,8 @@
 from rest_framework import serializers
 from .models import Event
-from django.contrib.auth import get_user_model, authenticate
+from django.contrib.auth import get_user_model
 
 User = get_user_model()
-
 
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
@@ -21,7 +20,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class RegisterSerializer(serializers.ModelSerializer):
-    role = serializers.ChoiceField(choices=User.ROLE_CHOICES, default='attendee')  
+    role = serializers.ChoiceField(choices=User.ROLE_CHOICES, default='attendee')
 
     class Meta:
         model = User
@@ -29,11 +28,12 @@ class RegisterSerializer(serializers.ModelSerializer):
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
+        print("Validated Data:", validated_data)
         return User.objects.create_user(
             username=validated_data['username'],
             email=validated_data['email'],
             password=validated_data['password'],
-            role=validated_data.get('role', 'attendee') 
+            role=validated_data['role']
         )
 
 
